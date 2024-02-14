@@ -30,7 +30,7 @@ export default function ControlAudio() {
             </Label>
             <Input
               id="name"
-              defaultValue="ctr + space"
+              defaultValue="ctr + 0 (number)"
               className="col-span-3"
               disabled="true"
             />
@@ -41,7 +41,7 @@ export default function ControlAudio() {
             </Label>
             <Input
               id="username"
-              defaultValue="` (below escape button)"
+              defaultValue="ctr + 8"
               className="col-span-3"
               disabled="true"
             />

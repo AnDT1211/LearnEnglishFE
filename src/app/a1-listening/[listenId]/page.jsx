@@ -151,7 +151,7 @@ export default function A1ListeningById({params}) {
     setCurrentTime(progressBar.current.value);
   }
 
-  const backThirty = () => {
+  const backSecond = () => {
     progressBar.current.value = Number(progressBar.current.value - 1);
     changeRange();
   }
@@ -177,22 +177,19 @@ export default function A1ListeningById({params}) {
 
   useEffect(() => {
     const callback = (event) => {
-      console.log(event.code)
       // event.metaKey - pressed Command key on Macs
       // event.ctrlKey - pressed Control key on Linux or Windows
-      if ((event.metaKey || event.ctrlKey) && event.code === 'KeyC') {
-        console.log('Pressed Command/Control + C');
+      if ((event.metaKey || event.ctrlKey) && event.code === 'Digit0') {
         togglePlayPause();
-      } else if((event.metaKey || event.ctrlKey) && event.code === 'Space') {
-        console.log('Pressed Command/Control + space');
-        togglePlayPause();
+      } else if ((event.metaKey || event.ctrlKey) && event.code === 'Digit8') {
+        backSecond();
       }
     };
     document.addEventListener('keydown', callback);
     return () => {
       document.removeEventListener('keydown', callback);
     };
-  }, []);
+  }, [isPlaying]);
 
 
 
@@ -227,7 +224,7 @@ export default function A1ListeningById({params}) {
           <audio ref={audioPlayer} src={listening.audioUrl} preload="metadata"></audio>
           <div className="grid grid-cols-3 justify-items-center">
             <div className="flex gap-1">
-              <Button onClick={backThirty}> <MdKeyboardArrowLeft/></Button>
+              <Button onClick={backSecond}> <MdKeyboardArrowLeft/></Button>
               <Button onClick={togglePlayPause}>{isPlaying ? <FaPause/> : <FaPlay/>}</Button>
             </div>
             <div>
