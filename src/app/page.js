@@ -1,113 +1,109 @@
 import Image from "next/image";
+import {Button} from "@/components/ui/button";
+import AppHeading from "@/components/application/AppHeading";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
+import Link from "next/link";
+import CardLevel from "@/components/application/home/CardLevel";
 
 export default function Home() {
+
+  const cardsDisplay = [{
+    cardHrefLink: "/a1-listening",
+    cardTitle: "A1 Listening",
+    cardDescription: "Level: A1",
+    cardContent: "Listening" +
+      " practice to help you understand familiar words and basic phrases when people speak slowly" +
+      " and clearly. Situations include meeting people, shopping and conversations at work!"
+  }, {
+    cardHrefLink: "/a2-listening",
+    cardTitle: "A2 Listening",
+    cardDescription: "Level: A2",
+    cardContent: "Listening" +
+      " practice to help you understand common vocabulary and expressions in short, clear" +
+      "dialogues. Situations include simple explanations, introductions, messages and announcements."
+  }, {
+    cardHrefLink: "/b1-listening",
+    cardTitle: "B1 Listening",
+    cardDescription: "Level: B1",
+    cardContent: "Listening" +
+      " practice to help you understand the main points of clear, standard speech about everyday or" +
+      " job-related topics. Situations include phone calls, meetings and interviews."
+  }, {
+    cardHrefLink: "/b2-listening",
+    cardTitle: "B2 Listening",
+    cardDescription: "Level: B2",
+    cardContent: "Listening" +
+      " practice to help you understand extended, standard speech about familiar topics that may contain" +
+      " complex ideas. Situations include broadcasts, reviews, presentations and lectures."
+  }, {
+    cardHrefLink: "/c1-listening",
+    cardTitle: "C1 Listening",
+    cardDescription: "Level: C1",
+    cardContent: "Listening" +
+      " practice to help you understand extended speech about abstract, complex or unfamiliar topics." +
+      " Situations include job interviews, lectures, talks and meetings."
+  },]
+
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <AppHeading pageFocus="0"/>
+
+      <div className="text-justify">
+        <div className="py-10">
+          <div className="text-center text-4xl font-bold">Listen Together</div>
+          <div className="text-lg my-4">Here you can find activities to practise your listening skills. Listening will
+            help you to improve your
+            understanding of the language and your pronunciation.
+          </div>
+          <div className="text-lg my-4">The self-study lessons in this section are written and organised by English
+            level based on the Common European Framework of Reference for languages (CEFR). There are recordings of
+            different situations and interactive exercises that practise the listening skills you need to do well in
+            your studies, to get ahead at work and to communicate in English in your free time. The speakers you will
+            hear are of different nationalities and the recordings are designed to show how English is being used in the
+            world today.
+          </div>
+          <div className="text-lg my-4">Take our free online English test to find out which level to choose. Select your
+            level, from A1 English level (elementary) to C1 English level (advanced), and improve your listening skills
+            at
+            your own speed, whenever it&apos;s convenient for you.
+          </div>
+        </div>
+
+        <div className="py-5">
+          <div className="text-center text-4xl">Why?</div>
+        </div>
+
+        <div className="py-10">
+          <div className="text-center text-4xl">How?</div>
+        </div>
+
+
+        <div className="py-10">
+          <div className="text-center text-4xl">Choose your level to practise your listening</div>
+
+          {cardsDisplay.map(x => {
+            return <>
+              <CardLevel hrefLink={x.cardHrefLink} cardTitle={x.cardTitle} cardDescription={x.cardDescription}
+                         cardContent={x.cardContent}/>
+            </>
+          })}
+        </div>
+
+        <div className="mb-52">
+          <div className="text-center text-4xl font-bold">Practice to listen with confidence</div>
+          <div className="text-lg my-4">Our online English classes feature lots of useful learning materials and
+            activities to help you listen and respond with confidence in a safe and inclusive learning environment.
+          </div>
+          <div className="text-lg my-4">Practise listening to your classmates in live group classes, get listening
+            support
+            from a personal tutor in one-to-one lessons or practise by yourself at your own speed with a self-study
+            course.
+          </div>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   );
 }
